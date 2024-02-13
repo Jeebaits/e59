@@ -3,15 +3,17 @@
 //     description: string
 // }
 
-import { type ReactNode } from "react";
+import { type FC, type PropsWithChildren } from "react"; //, type ReactNode removed
 
-interface CourseGoalProps {
-    title: string, 
-    description: string,
-    children: ReactNode
-}
+// interface CourseGoalProps {
+    // title: string, 
+    // description: string,
+//     children: ReactNode
+// }
 
-const CourseGoal = ({title, description, children}: CourseGoalProps) => {
+type CourseGoalProps = PropsWithChildren<{title: string, description: string}>
+
+const CourseGoal: FC<CourseGoalProps> = ({title, description, children}: CourseGoalProps) => {
     return (
         <article>
             <div>
