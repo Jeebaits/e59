@@ -4,7 +4,7 @@ import goalsImg from "./assets/react.svg";
 import { useState } from "react";
 import CourseGoalList from "./components/CourseGoalList";
 
-type CourseGoal = {
+export type CourseGoal = {
   title: string,
   description: string,
   id: number
