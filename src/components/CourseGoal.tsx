@@ -11,9 +11,14 @@ import { type FC, type PropsWithChildren } from "react"; //, type ReactNode remo
 //     children: ReactNode
 // }
 
-type CourseGoalProps = PropsWithChildren<{title: string, description: string}>
+type CourseGoalProps = PropsWithChildren<{
+    title: string, 
+    description: string, 
+    id: number,
+    onDelete: (id: number) => void;
+}>
 
-const CourseGoal: FC<CourseGoalProps> = ({title, description, children}: CourseGoalProps) => {
+const CourseGoal: FC<CourseGoalProps> = ({title, description, id, onDelete, children}: CourseGoalProps) => {
     return (
         <article>
             <div>
@@ -21,7 +26,7 @@ const CourseGoal: FC<CourseGoalProps> = ({title, description, children}: CourseG
                 <p>{description}</p>
                 {children}
             </div>
-            <button>Delete</button>
+            <button onClick={() => onDelete(id)}>Delete</button>
         </article>
     )
 }

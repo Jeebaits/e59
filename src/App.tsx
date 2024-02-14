@@ -9,6 +9,7 @@ export type CourseGoal = {
   description: string,
   id: number
 }
+
 const App = () => {
   const [goals, setGoals] = useState<CourseGoal[]>([]); // initialized to empty array with type CourseGoal
   const handleAddGoal = () => {
@@ -21,6 +22,11 @@ const App = () => {
       return [...prevGoals, newGoal]; // add to previous list
     });
   }
+
+  // Create delete function
+  const handleDeleteGoal = (id: number) => {
+    setGoals(prevGoals => prevGoals.filter((goal) => goal.id !== id));
+  }
   return (
     <main>
       <Header image={{src: goalsImg, alt: 'image of goals'}}>
@@ -28,7 +34,7 @@ const App = () => {
       </Header>
       <button onClick={handleAddGoal}>Add Goal</button>
       {/* create list of goals */}
-      <CourseGoalList goals = {goals}/>
+      <CourseGoalList goals={goals} onDeleteGoal={handleDeleteGoal}/>
     </main>
   )
 }

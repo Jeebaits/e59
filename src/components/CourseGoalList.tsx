@@ -4,6 +4,7 @@ import { type CourseGoal as CourseGoalType } from "../App.tsx"; // use alias to 
 
 // Array of goals interface
 interface CourseGoalListProps{
+    onDeleteGoal: (id: number) => void;
     goals: CourseGoalType[];
     // goals:{
     //     title: string,
@@ -12,12 +13,12 @@ interface CourseGoalListProps{
     // }[]
 }
 
-const CourseGoalList: FC<CourseGoalListProps> = ({goals}) => {
+const CourseGoalList: FC<CourseGoalListProps> = ({goals, onDeleteGoal}) => {
   return (
     <ul>
         {goals.map((goal) => (
             <li>
-                <CourseGoal title={goal.title} description={goal.description}>
+                <CourseGoal title={goal.title} description={goal.description} onDelete={onDeleteGoal} id={goal.id}>
                     <p>Author: JRamos</p>
                 </CourseGoal>
             </li>
