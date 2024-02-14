@@ -2,6 +2,7 @@ import CourseGoal from "./components/CourseGoal";
 import Header from "./components/Header";
 import goalsImg from "./assets/react.svg";
 import { useState } from "react";
+import CourseGoalList from "./components/CourseGoalList";
 
 type CourseGoal = {
   title: string,
@@ -27,15 +28,7 @@ const App = () => {
       </Header>
       <button onClick={handleAddGoal}>Add Goal</button>
       {/* create list of goals */}
-      <ul>
-        {goals.map((goal) => (
-          <li>
-          <CourseGoal title={goal.title} description={goal.description}>
-            <p>Author: JRamos</p>
-          </CourseGoal>
-        </li>
-        ))}
-      </ul>
+      <CourseGoalList goals = {goals}/>
     </main>
   )
 }
