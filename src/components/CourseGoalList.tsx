@@ -29,7 +29,7 @@ const CourseGoalList: FC<CourseGoalListProps> = ({goals, onDeleteGoal}) => {
     let warningBox: ReactNode;
     if (goals.length > 3) {
         warningBox = (
-            <InfoBox mode="warning">
+            <InfoBox mode="warning" severity="high">
                 Too many goals, don't put too much!
             </InfoBox>
         )
